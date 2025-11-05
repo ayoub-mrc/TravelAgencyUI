@@ -1,0 +1,85 @@
+/* تنسيقات مخصصة للموقع */
+
+.header-area {
+  background: #fff;
+  padding: 0 30px;
+}
+
+.main-header-area {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.logo img {
+  max-width: 120px;
+}
+
+.main-menu ul li {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px;
+}
+
+.main-menu ul li a {
+  color: #040e27;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: inline-block;
+  padding: 35px 0px;
+  font-family: "Rubik", sans-serif;
+  position: relative;
+  text-decoration: none;
+}
+
+.popular_destination_area {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section_title {
+  margin-bottom: 80px;
+}
+
+.section_title h3 {
+  font-size: 38px;
+  font-weight: 400;
+  color: #040e27;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.section_title p {
+  font-size: 16px;
+  color: #7a838b;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.footer {
+  background: #040e27;
+  padding: 20px 0;
+}
+
+.copy_right {
+  font-size: 14px;
+  font-weight: 400;
+  color: #aab1b7;
+  margin-bottom: 0;
+  font-family: "Rubik", sans-serif;
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 767px) {
+  .main-menu {
+    display: none;
+  }
+
+  .mobile_menu {
+    display: block;
+  }
+
+  .section_title h3 {
+    font-size: 30px;
+  }
+}
