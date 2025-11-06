@@ -1,3 +1,34 @@
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("header.html")
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("header").innerHTML = data;
+
+      setTimeout(() => {
+        if (typeof $ !== "undefined" && $.fn.slicknav) {
+          var menu = $("ul#navigation");
+          if (menu.length) {
+            menu.slicknav({
+              prependTo: ".mobile_menu",
+              closedSymbol: "+",
+              openedSymbol: "-",
+            });
+            console.log("✅ SlickNav initialized");
+          } else {
+            console.warn("⚠️ لم يتم العثور على ul#navigation");
+          }
+        } else {
+          console.error("⚠️ jQuery أو slicknav غير محملين");
+        }
+      }, 300); // ننتظر 300ms
+    });
+
+  fetch("footer.html")
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("footer").innerHTML = data;
+    });
+});
 (function ($) {
   "use strict";
   // TOP Menu Sticky

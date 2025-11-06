@@ -6843,10 +6843,10 @@ td.numbetr {
 }
 .whatsapp_btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
   background-color: #25d366;
   border-radius: 50%;
   display: flex;
@@ -6856,12 +6856,18 @@ td.numbetr {
   color: white;
   font-size: 28px;
   z-index: 9999;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.7s ease, box-shadow 0.5s ease;
 }
 
 .whatsapp_btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
-
+.whatsapp_btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+.whatsapp_btn:hover i{
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */
