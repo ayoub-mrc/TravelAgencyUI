@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             console.log("✅ SlickNav initialized");
           } else {
-            console.warn("⚠️ لم يتم العثور على ul#navigation");
+            console.warn("⚠️  ul#navigation not defined");
           }
         } else {
-          console.error("⚠️ jQuery أو slicknav غير محملين");
+          console.error("⚠️ jQuery and slicknav not loaded yet ");
         }
       }, 300); // ننتظر 300ms
     });

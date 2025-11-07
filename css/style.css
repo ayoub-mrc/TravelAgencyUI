@@ -13,8 +13,9 @@
   justify-content: start;
 }
 :root {
-  --btnColor: rgba(66, 130, 248, 0.719);
-  --btnHoverColor: rgba(12, 81, 207, 0.979);
+  --btnColor: rgba(66, 130, 248, 0.733);
+  --TxtHoverColor: rgba(241, 223, 103, 0.712) /*rgba(24, 96, 231, 0.979)*/;
+  --btnHoverColor: rgba(49, 118, 247, 0.76) /*rgba(24, 96, 231, 0.979)*/;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -556,7 +557,7 @@ h3 {
 
 /* line 16, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_btn.scss */
 .boxed-btn:hover {
-  background: var(--btnHoverColor);
+  background: var(--TxtHoverColor);
   color: #fff !important;
   border: 1px solid #ff4a52;
 }
@@ -612,7 +613,7 @@ h3 {
 
 /* line 42, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_btn.scss */
 .boxed-btn3:hover {
-  background: var(--btnHoverColor);
+  background: var(--TxtHoverColor);
   color: rgb(0, 0, 0) !important;
   transform: var(--btnScale);
 }
@@ -652,7 +653,7 @@ h3 {
 
 /* line 67, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_btn.scss */
 .boxed-btn4:hover {
-  background: var(--btnHoverColor);
+  background: var(--TxtHoverColor);
   color: rgb(0, 0, 0) !important;
   transform: var(--btnScale);
 }
@@ -1021,8 +1022,10 @@ h3 {
 
 /* line 72, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu {
-  padding: 12px 0;
+  padding: 20px 0;
   position: relative;
+  display: flex;
+  justify-items: center;
 }
 
 /* line 75, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -1035,8 +1038,8 @@ h3 {
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 1px;
-  background: #eaeaea;
+  width: 1.4px;
+  background: var(--btnColor);
   content: "";
   left: -10%;
 }
@@ -1059,7 +1062,7 @@ h3 {
 .header-area .main-header-area .main-menu ul li {
   display: inline-block;
   position: relative;
-  margin: 0 35px 0 0;
+  margin: 0 50px 0 0;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -1085,8 +1088,8 @@ h3 {
 
 /* line 113, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li a:hover {
-  color: rgba(36, 113, 255, 0.719);
-  transform: scale(1.03);
+  color: var(--btnHoverColor);
+  transform: scale(1.05);
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -1289,7 +1292,7 @@ h3 {
   transition: transform 0.7s ease-in-out, box-shadow 0.7s ease-in;
 }
 .header-area .social_wrap .number:hover {
-  background-color: var(--btnHoverColor);
+  background-color: var(--TxtHoverColor);
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
   transform: translate(-4px, -3px);
 }
@@ -1350,8 +1353,13 @@ h3 {
   top: 0;
   bottom: 0;
   z-index: 9;
-  background: rgba(36, 113, 255, 0.719);
+  background: var(--btnColor);
   width: 100px;
+  transition: background 1s;
+}
+.header-area .seach_icon:hover {
+  background: var(--TxtHoverColor);
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -1392,6 +1400,10 @@ h3 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  transition: color 1s;
+}
+.header-area .seach_icon:hover i {
+  color: #000;
 }
 
 /* line 1, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
@@ -2002,7 +2014,7 @@ h3 {
 
 /* line 108, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_footer.scss */
 .footer .footer_top .footer_widget ul li a:hover {
-  color: #ff4a52;
+  color: var(--TxtHoverColor);
 }
 
 /* line 114, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_footer.scss */
@@ -2151,7 +2163,7 @@ h3 {
 
 /* line 222, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_footer.scss */
 .footer .socail_links ul li a:hover {
-  color: #ff4a52 !important;
+  color: /*#ff4a52*/ var(--TxtHoverColor) !important;
   border-color: transparent;
 }
 
@@ -2916,7 +2928,7 @@ h3 {
 
 /* line 65, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
 .popular_destination_area .single_destination:hover .content p {
-  color: var(--btnHoverColor);
+  color: var(--TxtHoverColor);
   -webkit-transition: 0.7s;
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -2925,7 +2937,7 @@ h3 {
 
 /* line 68, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
 .popular_destination_area .single_destination:hover .content p a {
-  background: var(--btnHoverColor);
+  background: var(--TxtHoverColor);
   color: #fff;
   transition: 0.9s;
 }
@@ -3330,7 +3342,7 @@ h3 {
 
 /* line 85, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_popular_place.scss */
 .popular_places_area .single_place:hover .thumb .prise {
-  background: var(--btnHoverColor);
+  background: var(--TxtHoverColor);
 }
 
 /* line 91, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_popular_place.scss */
@@ -3643,7 +3655,7 @@ h3 {
 
 /* line 118, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_video.scss */
 .recent_trip_area .single_trip:hover .info a h3 {
-  color: #ff4a52;
+  color: var(--btnHoverColor);
 }
 
 /* line 1, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_travel_variation.scss */
@@ -6857,7 +6869,7 @@ td.numbetr {
   font-size: 28px;
   z-index: 9999;
   transition: transform 0.7s ease, box-shadow 0.5s ease;
-  animation: pop 2s infinite;;
+  animation: pop 2s infinite;
 }
 @keyframes pop {
   0% {
@@ -6867,7 +6879,7 @@ td.numbetr {
     transform: scale(1.1);
   }
   100% {
-    transform: scale(1);  
+    transform: scale(1);
   }
 }
 
@@ -6875,11 +6887,8 @@ td.numbetr {
   transform: scale(1.1);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
-.whatsapp_btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-}
-.whatsapp_btn:hover i{
+
+.whatsapp_btn:hover i {
   color: white;
 }
 /*# sourceMappingURL=style.css.map */
