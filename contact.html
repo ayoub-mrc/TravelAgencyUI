@@ -295,7 +295,7 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         // إنشاء الخريطة
-        var map = L.map("map").setView([34.020882, -6.84165], 13);
+        var map = L.map("map").setView([32.87684, -6.911055], 13);
 
         // تحميل خريطة OpenStreetMap
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -305,11 +305,10 @@
         }).addTo(map);
 
         // إضافة مؤشر
-        L.marker([32.876840, -6.911055]) 
-
+        L.marker([32.87684, -6.911055])
 
           .addTo(map)
-          .bindPopup("👋 مرحباً بك في الرباط!")
+          .bindPopup("👋 مرحباً بك في أسفار الرواق!")
           .openPopup();
       });
     </script>
