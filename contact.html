@@ -120,7 +120,7 @@
           <div class="col-12">
             <h2 class="contact-title">Get in Touch</h2>
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-8 contact">
             <form
               class="form-contact contact_form"
               action="contact_process.php"
@@ -188,34 +188,43 @@
                   type="submit"
                   class="button button-contactForm boxed-btn"
                 >
-                  Send
+                  Envoyer
                 </button>
               </div>
             </form>
           </div>
-          <div class="col-lg-3 offset-lg-1">
-            <div class="media contact-info">
-              <span class="contact-info__icon"><i class="ti-home"></i></span>
-              <div class="media-body">
-                <h3>Buttonwood, California.</h3>
-                <p>Rosemead, CA 91770</p>
-              </div>
-            </div>
-            <div class="media contact-info">
-              <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-              <div class="media-body">
-                <h3>+1 253 565 2365</h3>
-                <p>Mon to Fri 9am to 6pm</p>
-              </div>
-            </div>
-            <div class="media contact-info">
-              <span class="contact-info__icon"><i class="ti-email"></i></span>
-              <div class="media-body">
-                <h3>support@colorlib.com</h3>
-                <p>Send us your query anytime!</p>
-              </div>
+
+          <div class="col-lg-3 offset-lg-1 contact">
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-home"></i></span>
+            <div class="media-body">
+              <h3>Fkih Ben Salah</h3>
+              <p>Quartier El Yasamine Avenue Allal Ben Abdellah N 21</p>
             </div>
           </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+            <div class="media-body">
+              
+                <span >Nabil </span>
+                <h3>+212 651259429</h3>
+
+                <span >Hassan</span>
+                <h3>+212 663734292</h3>
+
+                <span >Hodir</span>
+                <h3>+212 662231352</h3>
+              
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-email"></i></span>
+            <div class="media-body">
+              <h3>ALRIWAQ@gmail.com</h3>
+              <p>Envoyer ton reclamation ici</p>
+            </div>
+          </div>
+         </div>
         </div>
       </div>
     </section>
@@ -295,7 +304,7 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         // إنشاء الخريطة
-        var map = L.map("map").setView([32.87684, -6.911055], 13);
+        var map = L.map("map").setView([32.51234, -6.6761273], 15);
 
         // تحميل خريطة OpenStreetMap
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -305,7 +314,7 @@
         }).addTo(map);
 
         // إضافة مؤشر
-        L.marker([32.87684, -6.911055])
+        L.marker([32.51234, -6.6761273])
 
           .addTo(map)
           .bindPopup("👋 مرحباً بك في أسفار الرواق!")

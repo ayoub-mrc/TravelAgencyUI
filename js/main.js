@@ -29,6 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("footer").innerHTML = data;
     });
 });
+
+const swiper = new Swiper(".swiper", {
+  slidesPerView: 3, // عدد العناصر الظاهرة في الشاشة
+  spaceBetween: 20, // المسافة بين العناصر
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    768: { slidesPerView: 1 },
+    992: { slidesPerView: 2 },
+    1200: { slidesPerView: 3 },
+  },
+});
+
 (function ($) {
   "use strict";
   // TOP Menu Sticky
