@@ -25,7 +25,7 @@
   --green: #28a745;
   --teal: #20c997;
   --cyan: #17a2b8;
-  --white: #fff;
+  --white: #d9d5ec;
   --gray: #6c757d;
   --gray-dark: #343a40;
   --primary: #007bff;
@@ -51,6 +51,7 @@
   --btnTransitionScale: transform 0.9s;
   --footerheadColor: white;
   --footerColor: #aab1b7;
+  --borderRadius:20px;
 }
 
 /* Normal desktop :1200px. */
@@ -66,7 +67,8 @@
 /* Large Mobile :480px. */
 /* line 6, ../../Arafath/CL/December/231. Travel-02/HTML/scss/theme-default.scss */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Rubik",
+    sans-serif /*"Segoe UI", Tahoma, Geneva, Verdana, sans-serif*/;
   font-weight: normal;
   font-style: normal;
 }
@@ -937,7 +939,7 @@ h3 {
 .header-area .main-header-area {
   background: #fff;
   background: transparent;
-  padding: 25px 100px 25px 35px;
+  padding: 25px 25px 25px 35px;
 }
 
 /* line 21, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -1025,7 +1027,12 @@ h3 {
     width: 70px;
   }
 }
-
+.header-area .logo img {
+  transition: transform 1s;
+}
+.header-area .logo img:hover {
+  transform: scale(1.3);
+}
 /* line 72, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu {
   padding: 20px 0;
@@ -1155,11 +1162,14 @@ h3 {
 /* line 177, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li .submenu li {
   display: block;
+  width: 200px;
+  margin: 0px !important;
+  transition: background-color 0.4s ease-in;
 }
 
 /* line 179, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li .submenu li a {
-  padding: 10px 15px;
+  padding: 10px 0px 10px 10px;
   position: inherit;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -1168,6 +1178,7 @@ h3 {
   display: block;
   color: #040e27;
   font-size: 14px;
+  margin: 0px;
 }
 
 /* line 186, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -1176,8 +1187,8 @@ h3 {
 }
 
 /* line 190, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
-.header-area .main-header-area .main-menu ul li .submenu li:hover a {
-  color: #000;
+.header-area .main-header-area .main-menu ul li .submenu li:hover {
+  background-color: var(--btnColor);
 }
 
 /* line 195, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -1194,8 +1205,8 @@ h3 {
 }
 
 /* line 204, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
-.header-area .main-header-area .main-menu ul li:first-child a {
-  padding-left: 0;
+.header-area .main-header-area .main-menu ul li a {
+  padding-left: 2rem;
 }
 
 /* line 210, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -1253,20 +1264,32 @@ h3 {
 @media (min-width: 992px) and (max-width: 1200px) {
   /* line 267, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
   .header-area .social_wrap {
-    margin-right: 100px;
+    margin-right: 00px;
+  }
+  .header-area .social_wrap ul {
+    display: none;
   }
 }
 
 @media (min-width: 1200px) and (max-width: 1500px) {
   /* line 267, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
   .header-area .social_wrap {
-    margin-right: 55px;
+    margin-right: 0px;
   }
 }
-
+@media (min-width: 992px) and(max-width: 1083px) {
+  /* line 267, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
+  .header-area {
+    position: relative;
+  }
+  .header-area .social_wrap {
+    position: absolute;
+    right: 0;
+  }
+}
 /* line 276, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .social_wrap .social_links {
-  margin-right: 4px;
+  margin-left: 20px;
 }
 
 /* line 279, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -1281,7 +1304,6 @@ h3 {
   font-size: 16px;
   margin: 0 11px;
 }
-
 /* line 286, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .social_wrap .social_links li a:hover {
   color: rgba(36, 113, 255, 0.719);
@@ -1289,18 +1311,19 @@ h3 {
 
 /* line 292, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .social_wrap .number {
-  color: white;
-  margin-right: 20px;
+  margin-right: 50px;
   padding-right: 20px;
   border: 1px solid #140404;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 0.7rem;
+  border-radius: 7px;
   background-color: var(--btnColor);
   box-shadow: var(--MainShadow);
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.7s ease-in-out, box-shadow 0.7s ease-in;
+  display: block !important;
 }
+
 .header-area .social_wrap .number:hover {
   background-color: var(--TxtHoverColor);
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
@@ -1322,21 +1345,12 @@ h3 {
   }
 }
 
+/*
 @media (min-width: 992px) and (max-width: 1200px) {
-  /* line 292, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
   .header-area .social_wrap .number {
-    border-right: 1px solid transparent;
+    border-right: 1px solid black;
   }
-}
-
-/* line 306, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
-.header-area .social_wrap .number p {
-  font-size: 16px;
-  color: #040e27;
-  margin-bottom: 0;
-  font-weight: 400;
-  border-radius: 6px;
-}
+}*/
 
 @media (min-width: 1200px) and (max-width: 1500px) {
   /* line 306, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -1346,13 +1360,13 @@ h3 {
 }
 
 /* line 315, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
-.header-area .social_wrap .number p i {
+.header-area .social_wrap .number i {
   color: white;
   font-size: 16px;
   margin-right: 5px;
   transition: color 0.7s;
 }
-.header-area .social_wrap .number:hover p i {
+.header-area .social_wrap .number:hover i {
   color: #000000;
 }
 
@@ -1439,7 +1453,7 @@ h3 {
 
 /* line 23, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
 .slider_area .single_slider {
-  min-height: 800px !important;
+  min-height: 750px !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1888,6 +1902,10 @@ h3 {
 }
 .footer_widget .list-group-item .day {
   color: var(--footerheadColor);
+}
+
+.offers .list-group-item {
+  border-radius: var(--borderRadius);
 }
 /* line 9, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_footer.scss */
 .footer .footer_top {
@@ -2970,7 +2988,7 @@ h3 {
 
 /* line 80, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
 .destination_banner_wrap {
-  background-image: url(../img/banner/destination.png);
+  background-image: url(../images/photo_5805556871270698103_y.jpg);
   padding: 340px 0;
   background-size: cover;
   background-position: center center;
@@ -3029,7 +3047,7 @@ h3 {
 
 /* line 118, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
 .destination_details_info {
-  padding-bottom: 150px;
+  padding-bottom: 70px;
   padding-top: 70px;
 }
 
@@ -3169,17 +3187,18 @@ h3 {
 .newletter_area .newsletter_text h4 {
   font-size: 24px;
   font-weight: 400;
-  color: #fff;
+  color: #4b4825;
   margin-bottom: 0;
   margin-bottom: 11px;
 }
 
 /* line 24, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_newsletter.scss */
 .newletter_area .newsletter_text p {
-  color: black /*#aab1b7*/;
+  color: rgb(168, 6, 6) /*#aab1b7*/;
   font-size: 16px;
   line-height: 28px;
   margin-bottom: 0;
+  color: var(--TxtHoverColor);
 }
 
 /* line 32, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_newsletter.scss */
@@ -3544,6 +3563,8 @@ h3 {
   background-position: center center;
   background-size: cover;
   padding: 190px 0;
+  border: solid 1px rgb(207, 22, 22);
+  border-radius: 20px;
 }
 
 @media (max-width: 767px) {
@@ -3555,7 +3576,7 @@ h3 {
 
 /* line 12, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_video.scss */
 .video_area.overlay:before {
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 /* line 16, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_video.scss */
@@ -6617,8 +6638,6 @@ td.numbetr {
   color: #777;
 }
 
-/*============ End Blog Single Styles  =============*/
-/**************** blog part css start ****************/
 /* line 2, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_blog_part.scss */
 .blog_part {
   margin-bottom: 140px;
@@ -6690,6 +6709,7 @@ td.numbetr {
   border-radius: 0px;
   background-color: transparent;
   position: relative;
+  height: 19em;
 }
 
 /* line 48, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_blog_part.scss */
@@ -6933,6 +6953,7 @@ td.numbetr {
 }
 /*# sourceMappingURL=style.css.map */
 
+/*Swiper part*/
 .swiper-slide {
   display: flex;
   justify-content: center;
@@ -6944,6 +6965,11 @@ td.numbetr {
   flex-direction: column;
   height: auto;
 }
+
+
+/*Swiper part*/
+
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   color: #000;
@@ -6963,7 +6989,434 @@ td.numbetr {
     transform: scale(1);
   }
 }
+/*End swiper part*/
 
-.heading-title {
-  font-weight: 400;
+header {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  letter-spacing: 0.2px;
+}
+.dek {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+/* ===== Split Grid ===== */
+.screen {
+  max-width: var(--maxw);
+  margin: 1.25rem auto 2.5rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+@media (max-width: 980px) {
+  .screen {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Sidebar (master list) ===== */
+.list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.list h2 {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.05rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.items {
+  display: grid;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px dashed var(--border);
+  text-decoration: none;
+  color: inherit;
+}
+.item:last-child {
+  border-bottom: 0;
+}
+.item:hover {
+  background: rgba(37, 99, 235, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  .item:hover {
+    background: rgba(67, 147, 245, 0.08);
+  }
+}
+.thumb2 {
+  width: 84px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  border: 1px solid var(--border);
+}
+.meta h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.meta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ===== Preview Pane (detail via :target) ===== */
+.pane {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem;
+  min-height: 520px;
+  overflow: clip;
+}
+.pane section {
+  display: none;
+  animation: fade 0.25s ease both;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Show targeted panel */
+.pane section:target {
+  display: block;
+}
+
+/* Default panel (when no :target in URL) */
+.pane:has(section:target) #preview-default {
+  display: none;
+}
+.pane:not(:has(section:target)) #preview-train {
+  display: block;
+}
+
+.hero {
+  width: 100%;
+  height: min(48vh, 340px);
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.25s ease, transform 0.9s ease;
+}
+.hero:hover {
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+  transform: scale(1.02);
+}
+.pad {
+  padding: 0.9rem 0.2rem 0;
+}
+.kicker {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+.pane h2 {
+  margin: 0.1rem 0 0.45rem;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  color: var(--accent);
+}
+.pane p {
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+}
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+.pill {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.92rem;
+}
+.pill:hover {
+  background-color: #cad7e4;
+}
+.read-more {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.28);
+}
+
+/* ===== Dialogs ===== */
+dialog {
+  width: 92%;
+  max-width: 760px;
+  border: none;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 2rem;
+  position: relative;
+  text-align: left;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+dialog img {
+  width: 460px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+dialog h2 {
+  margin: 0.25rem 0 0.8rem;
+  line-height: 1.25;
+}
+dialog p {
+  margin: 0 0 1rem;
+}
+
+/* Focus styles */
+a,
+button {
+  outline: none;
+}
+a:focus-visible,
+button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35),
+    0 0 0 6px rgba(37, 99, 235, 0.15);
+  transition: box-shadow 0.15s ease;
+}
+
+/* ===== Print: only OPEN dialog ===== */
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  body:has(dialog[open]) > :not(dialog[open]) {
+    display: none !important;
+  }
+  dialog:not([open]) {
+    display: none !important;
+  }
+
+  dialog[open] {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: var(--surface) !important;
+  }
+  dialog[open]::backdrop {
+    display: none !important;
+  }
+
+  .close-btn,
+  .read-more,
+  nav {
+    display: none !important;
+  }
+  h1,
+  h2,
+  img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  * {
+    scrollbar-width: none !important;
+  }
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+
+.offers {
+  margin: 2rem 2rem;
+}
+
+/*button offer*/
+
+.place_info .btn_offer {
+  position: absolute;
+  bottom: 0.7rem;
+  place-self: center;
+}
+
+
+
+
+/*Offre Details*/
+
+.details {
+  background-color: rgb(34, 101, 247, 0.1);
+  border: 2px solid var(--btnColor);
+  border-radius: var(--borderRadius);
+  padding: 3rem;
+}
+
+.details .section-title {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.details .single_place {
+  border: 2px solid var(--btnColor);
+  border-radius: var(--borderRadius);
+  transition: transform 1s ease-in-out , baackground 1s ease;
+}
+.details .single_place:hover ,
+.details .price:hover  {
+  background-color: var(--TxtHoverColor);
+  transform: translate(4px , -6px);
+  color: #000;
+}
+#dataForm .btn_Submit {
+  width: fit-content;
+}
+#dataForm .btn_Submit:hover {
+  background-color: var(--TxtHoverColor);
+  color: #000;
+}
+
+.details .price {
+  background-color: #00d363;
+  transition: transform 1s ease-in-out , baackground 1s ease;
+}
+
+.details .price,
+.details .days {
+  border-radius: 10px;
+  padding: 2rem;
+}
+.lead {
+  padding: 1rem;
+  line-height: 2.5rem;
+}
+.list-unstyled {
+  line-height: 2rem;
+}
+.destination_details_info .detail-icon{
+  font-size: 28px; 
+  margin-bottom: 8px;
+}
+.destination_details_info .title{
+
+  font-weight: 600;
+}
+
+.destination_details_info .icon-list-item .icon-list-icon:hover{
+  color: var(--TxtHoverColor);
+  cursor: pointer;    
+
+}
+.destination_details_info  .to_contact{
+  background-color: #fef4e5; 
+  padding: 25px; 
+  border-radius: var(--borderRadius);
+}
+.destination_details_info  .to_contact .btnContact {
+  background-color: var(--btnColor);
+  border: none;
+}
+.destination_details_info  .to_contact .btnContact:hover {
+  background-color: var(--TxtHoverColor);
+  cursor: pointer;
+}
+.destination_details_info  .to_contact h3 a {
+color: var(--btnColor); 
+font-weight: bold;
+
+}
+
+
+#dataForm {
+  max-width: 800px; 
+  background-color: rgb(34, 101, 247, 0.1);
+  border-radius: var(--borderRadius);
+   display: grid;
+  justify-items: center;
+}
+#dataForm  .form-control:hover {
+  background-color: var(--TxtHoverColor);
+ 
 }
