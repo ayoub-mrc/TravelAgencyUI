@@ -176,6 +176,8 @@ const sendDataToApi = async (data) => {
         }
     });*/
 
+
+    
 (function ($) {
   "use strict";
   // TOP Menu Sticky
