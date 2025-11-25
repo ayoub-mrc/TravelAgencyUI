@@ -51,7 +51,7 @@
   --btnTransitionScale: transform 0.9s;
   --footerheadColor: white;
   --footerColor: #aab1b7;
-  --borderRadius:20px;
+  --borderRadius: 20px;
 }
 
 /* Normal desktop :1200px. */
@@ -3185,20 +3185,19 @@ h3 {
 
 /* line 17, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_newsletter.scss */
 .newletter_area .newsletter_text h4 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
-  color: #4b4825;
-  margin-bottom: 0;
+  color: #98b0ff;
   margin-bottom: 11px;
 }
 
 /* line 24, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_newsletter.scss */
 .newletter_area .newsletter_text p {
-  color: rgb(168, 6, 6) /*#aab1b7*/;
+  /*color: rgb(168, 6, 6) ;*/
   font-size: 16px;
   line-height: 28px;
   margin-bottom: 0;
-  color: var(--TxtHoverColor);
+  color: rgb(239, 239, 245);
 }
 
 /* line 32, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_newsletter.scss */
@@ -3247,7 +3246,7 @@ h3 {
 .newletter_area .mail_form .newsletter_btn button {
   width: 100%;
   text-align: center;
-  padding: 13px 10px;
+  padding: 13px 8px;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -6966,9 +6965,7 @@ td.numbetr {
   height: auto;
 }
 
-
 /*Swiper part*/
-
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
@@ -7203,6 +7200,9 @@ dialog {
   position: relative;
   text-align: left;
 }
+dialog:not([open]) {
+  display: none;
+}
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.55);
 }
@@ -7322,9 +7322,6 @@ button:focus-visible {
   place-self: center;
 }
 
-
-
-
 /*Offre Details*/
 
 .details {
@@ -7340,12 +7337,12 @@ button:focus-visible {
 .details .single_place {
   border: 2px solid var(--btnColor);
   border-radius: var(--borderRadius);
-  transition: transform 1s ease-in-out , baackground 1s ease;
+  transition: transform 1s ease-in-out, baackground 1s ease;
 }
-.details .single_place:hover ,
-.details .price:hover  {
+.details .single_place:hover,
+.details .price:hover {
   background-color: var(--TxtHoverColor);
-  transform: translate(4px , -6px);
+  transform: translate(4px, -6px);
   color: #000;
 }
 #dataForm .btn_Submit {
@@ -7358,7 +7355,7 @@ button:focus-visible {
 
 .details .price {
   background-color: #00d363;
-  transition: transform 1s ease-in-out , baackground 1s ease;
+  transition: transform 1s ease-in-out, baackground 1s ease;
 }
 
 .details .price,
@@ -7373,53 +7370,94 @@ button:focus-visible {
 .list-unstyled {
   line-height: 2rem;
 }
-.destination_details_info .detail-icon{
-  font-size: 28px; 
+.destination_details_info .detail-icon {
+  font-size: 28px;
   margin-bottom: 8px;
 }
-.destination_details_info .title{
-
+.destination_details_info .title {
   font-weight: 600;
 }
 
-.destination_details_info .icon-list-item .icon-list-icon:hover{
+.destination_details_info .icon-list-item .icon-list-icon:hover {
   color: var(--TxtHoverColor);
-  cursor: pointer;    
-
+  cursor: pointer;
 }
-.destination_details_info  .to_contact{
-  background-color: #fef4e5; 
-  padding: 25px; 
+.destination_details_info .to_contact {
+  background-color: #fef4e5;
+  padding: 25px;
   border-radius: var(--borderRadius);
 }
-.destination_details_info  .to_contact .btnContact {
+.destination_details_info .to_contact .btnContact {
   background-color: var(--btnColor);
   border: none;
 }
-.destination_details_info  .to_contact .btnContact:hover {
+.destination_details_info .to_contact .btnContact:hover {
   background-color: var(--TxtHoverColor);
   cursor: pointer;
 }
-.destination_details_info  .to_contact h3 a {
-color: var(--btnColor); 
-font-weight: bold;
-
+.destination_details_info .to_contact h3 a {
+  color: var(--btnColor);
+  font-weight: bold;
 }
-
 
 #dataForm {
-  max-width: 800px; 
+  max-width: 800px;
   background-color: rgb(34, 101, 247, 0.1);
   border-radius: var(--borderRadius);
-   display: grid;
+  display: grid;
   justify-items: center;
 }
-#dataForm  .form-control:hover {
+#dataForm .form-control:hover {
   background-color: var(--TxtHoverColor);
- 
 }
 
-.contact-section .form-group .button-contactForm:hover{
+.contact-section .form-group .button-contactForm:hover {
   background-color: var(--TxtHoverColor);
-  color:#000;
+  color: #000;
 }
+
+
+
+
+
+
+
+
+
+/*Offers*/
+  .pane {
+        position: relative;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 1.1rem;
+        min-height: 520px;
+        overflow: clip;
+      }
+       .pane section {
+        display: none;
+        animation: fade 0.25s ease both;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .pane section:target {
+        display: block;
+      }
+
+      /* Default panel (when no :target in URL) */
+      .pane:has(section:target) #preview-default {
+        display: none;
+      }
+      .pane:not(:has(section:target)) #preview-train {
+        display: block;
+      }
