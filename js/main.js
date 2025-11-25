@@ -31,43 +31,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initializeSwiper() {
-  const swiperElement = document.querySelector(".swiper");
-  if (swiperElement) {
-    const swiper = new Swiper(".swiper", {
-      direction: "horizontal",
+  document.addEventListener("DOMContentLoaded", () => {
+    new Swiper(".offers-swiper", {
       loop: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-      }, // 1. تعيين الإعداد الافتراضي (لأصغر الشاشات)
-
-      slidesPerView: 1,
-      spaceBetween: 20,
-
-      // 2. تطبيق نقاط التوقف لتغيير العرض في الشاشات الأكبر
-      breakpoints: {
-        768: { slidesPerView: 2, spaceBetween: 20 },
-        992: { slidesPerView: 2, spaceBetween: 20 },
-        1200: { slidesPerView: 3, spaceBetween: 30 },
       },
 
-      // 3. الحل لمشكلة النقر (ضروري لروابط الهاتف)
-      slideToClickedSlide: true,
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        992: { slidesPerView: 2 },
+        1200: { slidesPerView: 3 },
+      },
     });
-    console.log("✅ Swiper Initialized with breakpoints.");
-  } else {
-    console.warn("⚠️ Swiper element not found.");
-  }
+  });
 }
 
-initializeSwiper();
-//Add Update info with from
+window.addEventListener("load", initializeSwiper);
 
-const form = document.getElementById("dataForm");
-const resultsDiv = document.getElementById("results");
-// NOTE: إذا كنت تختبر محليًا، قد تحتاج لتعديل المسار ليتضمن النطاق:
-// const apiEndpoint = 'https://localhost:7000/api/Customers';
-const apiEndpoint = "api/Customers"; // المسار إلى نقطة النهاية POST
+//Add Update info with from
 
 // 2. دالة مساعدة لتحديث حالة التحقق في Bootstrap
 const updateValidation = (inputElement, condition) => {
@@ -82,102 +68,39 @@ const updateValidation = (inputElement, condition) => {
   }
 };
 
-// 3. دالة إرسال البيانات إلى C# Backend
-const sendDataToApi = async (data) => {
-  try {
-    const response = await fetch(apiEndpoint, {
+
+
+//Add customer with form
+
+const formElement = document.getElementById("dataForm");
+
+if (formElement) {
+  const apiBase = "https://localhost:7215/api/Customers";
+
+  formElement.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const customer = {
+      fullName: document.getElementById("fullName").value,
+      email: document.getElementById("email").value,
+      city: document.getElementById("city").value,
+      phone: document.getElementById("phone").value,
+    };
+
+    const res = await fetch(apiBase, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // 'Authorization': 'Bearer YOUR_JWT_TOKEN', // للتحقق من الهوية
-      },
-      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(customer),
     });
 
-    // التحقق من حالة الاستجابة
-    // الكنترولر يعيد 201 Created، وهذا ممتاز للنجاح
-    if (response.status === 201) {
-      const createdCustomer = await response.json();
-
-      resultsDiv.classList.remove("alert-danger");
-      resultsDiv.classList.add("alert-success");
-      resultsDiv.innerHTML = `✅ تم تسجيل العميل بنجاح! رقم العميل: ${createdCustomer.id}`;
-      return true;
+    if (res.ok) {
+      alert("Customer created!");
     } else {
-      // محاولة قراءة رسالة خطأ من الـ Controller
-      let errorMessage = `فشل الإرسال: الحالة ${response.status}`;
-      try {
-        const errorData = await response.json();
-        if (errorData.message) errorMessage = errorData.message;
-        // أو إذا كان الـ Controller يرجع الأخطاء بصيغة ValidationProblemDetails (400)
-        else if (errorData.errors) errorMessage = "خطأ في البيانات المُرسلة.";
-      } catch (e) {
-        // إذا لم تكن الاستجابة JSON
-        errorMessage = `فشل الإرسال: الحالة ${response.statusText}`;
-      }
-      throw new Error(errorMessage);
+      alert("Error creating customer.");
     }
-  } catch (error) {
-    console.error("API Error:", error);
-    resultsDiv.classList.remove("alert-success");
-    resultsDiv.classList.add("alert-danger");
-    resultsDiv.innerHTML = `❌ حدث خطأ: ${error.message}`;
-    return false;
-  }
-};
+  });
+}
 
-// 4. معالج حدث الإرسال الرئيسي
-
-/* form.addEventListener('submit', async function(event) {
-        event.preventDefault(); 
-        event.stopPropagation(); 
-
-        resultsDiv.classList.add('d-none');
-        
-        // أ. جمع البيانات والتحقق منها
-        const formData = new FormData(form);
-        const name = formData.get('fullName').trim();
-        const email = formData.get('email').trim();
-        const phone = formData.get('phone').trim();
-        const city = formData.get('city').trim();
-        
-        let isValid = true;
-        
-        // التحقق من صحة الحقول (Client-Side Validation)
-        if (!updateValidation(document.getElementById('fullName'), name !== '')) isValid = false;
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!updateValidation(document.getElementById('userEmail'), emailPattern.test(email))) isValid = false;
-        const phonePattern = /^\d{10,}$/; 
-        if (!updateValidation(document.getElementById('userPhone'), phonePattern.test(phone))) isValid = false;
-        if (!updateValidation(document.getElementById('userCity'), city !== '')) isValid = false;
-
-        
-        // ب. إذا كانت البيانات صالحة
-        if (isValid) {
-            
-            // تهيئة البيانات لإرسالها
-            const submissionData = {
-                // Key names MUST match C# Customer Model properties
-                FullName: name,
-                Email: email,
-                Phone: phone, 
-                City: city
-            };
-
-            // إرسال البيانات
-            const success = await sendDataToApi(submissionData);
-            
-            // تصفير النموذج فقط عند النجاح
-            if (success) {
-                form.reset();
-                document.querySelectorAll('.is-valid').forEach(el => el.classList.remove('is-valid'));
-            }
-            resultsDiv.classList.remove('d-none'); // إظهار رسالة النجاح/الخطأ
-        }
-    });*/
-
-
-    
 (function ($) {
   "use strict";
   // TOP Menu Sticky

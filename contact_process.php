@@ -1,37 +1,35 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    $to = "spn8@spondonit.com";
-    $from = $_REQUEST['email'];
-    $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $number = $_REQUEST['number'];
-    $cmessage = $_REQUEST['message'];
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
 
-    $headers = "From: $from";
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $from . "\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+$mail = new PHPMailer(true);
 
-    $subject = "You have a message from your Bitmap Photography.";
+try {
+    // SMTP settings
+    $mail->isSMTP();
+    $mail->Host = "smtp.gmail.com";
+    $mail->SMTPAuth = true;
+    $mail->Username = "ayoufellahb14n19@gmail.com";   // بريدك
+    $mail->Password = "amak xbtw oaem oalv";           // كلمة مرور التطبيقات
+    $mail->SMTPSecure = "tls";
+    $mail->Port = 587;
 
-    $logo = 'img/logo.png';
-    $link = '#';
+    // Sender & Recipient
+    $mail->setFrom($_POST['email'], $_POST['name']);
+    $mail->addAddress("ayoufellahb14n19@gmail.com");
 
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
-	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$csubject}</td></tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$cmessage}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = $_POST['subject'];
+    $mail->Body = nl2br($_POST['message']);
 
-    $send = mail($to, $subject, $body, $headers);
-
+    $mail->send();
+    echo "success";
+} catch (Exception $e) {
+    echo "error: {$mail->ErrorInfo}";
+}
 ?>

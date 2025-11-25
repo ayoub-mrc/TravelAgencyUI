@@ -555,7 +555,7 @@ h3 {
   font-size: 14px;
   font-weight: 400;
   border: 0;
-  border: 1px solid #1ec6b6;
+  /*border: 1px solid #1ec6b6;*/
   text-align: center;
   color: #fff !important;
   text-transform: uppercase;
@@ -565,8 +565,8 @@ h3 {
 /* line 16, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_btn.scss */
 .boxed-btn:hover {
   background: var(--TxtHoverColor);
-  color: #fff !important;
-  border: 1px solid #ff4a52;
+  color: #1b1313 !important;
+  border: 1px solid #000000;
 }
 
 /* line 21, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_btn.scss */
@@ -7331,13 +7331,11 @@ button:focus-visible {
   background-color: rgb(34, 101, 247, 0.1);
   border: 2px solid var(--btnColor);
   border-radius: var(--borderRadius);
-  padding: 3rem;
 }
 
 .details .section-title {
   display: flex;
   justify-content: center;
-  padding: 1.5rem;
 }
 .details .single_place {
   border: 2px solid var(--btnColor);
@@ -7419,4 +7417,9 @@ font-weight: bold;
 #dataForm  .form-control:hover {
   background-color: var(--TxtHoverColor);
  
+}
+
+.contact-section .form-group .button-contactForm:hover{
+  background-color: var(--TxtHoverColor);
+  color:#000;
 }
