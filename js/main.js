@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initializeSwiper() {
   document.addEventListener("DOMContentLoaded", () => {
-    new Swiper(".offers-swiper", {
+    new Swiper(".swiper", {
       loop: true,
       spaceBetween: 20,
-      slidesPerView: 1,
+      slidesPerView: 3,
 
       navigation: {
         nextEl: ".swiper-button-next",
@@ -67,8 +67,6 @@ const updateValidation = (inputElement, condition) => {
     return false;
   }
 };
-
-
 
 //Add customer with form
 
