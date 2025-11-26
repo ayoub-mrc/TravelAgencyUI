@@ -7214,7 +7214,13 @@ dialog::backdrop {
   right: 1rem;
   top: 1rem;
   font-size: 1.25rem;
-  color: var(--accent);
+  color: red;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.close-btn:hover {
+  background-color: var(--btnHoverColor);
+  
 }
 dialog img {
   width: 460px;
@@ -7243,71 +7249,6 @@ button:focus-visible {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35),
     0 0 0 6px rgba(37, 99, 235, 0.15);
   transition: box-shadow 0.15s ease;
-}
-
-/* ===== Print: only OPEN dialog ===== */
-@media print {
-  @page {
-    margin: 16mm;
-  }
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  html,
-  body {
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  body:has(dialog[open]) > :not(dialog[open]) {
-    display: none !important;
-  }
-  dialog:not([open]) {
-    display: none !important;
-  }
-
-  dialog[open] {
-    display: block !important;
-    position: static !important;
-    inset: auto !important;
-    transform: none !important;
-    width: auto !important;
-    max-width: none !important;
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    background: var(--surface) !important;
-  }
-  dialog[open]::backdrop {
-    display: none !important;
-  }
-
-  .close-btn,
-  .read-more,
-  nav {
-    display: none !important;
-  }
-  h1,
-  h2,
-  img {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-  p,
-  li {
-    orphans: 3;
-    widows: 3;
-  }
-
-  * {
-    scrollbar-width: none !important;
-  }
-  *::-webkit-scrollbar {
-    display: none !important;
-  }
 }
 
 .offers {
@@ -7416,48 +7357,40 @@ button:focus-visible {
   color: #000;
 }
 
-
-
-
-
-
-
-
-
 /*Offers*/
-  .pane {
-        position: relative;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 1.1rem;
-        min-height: 520px;
-        overflow: clip;
-      }
-       .pane section {
-        display: none;
-        animation: fade 0.25s ease both;
-      }
-      @keyframes fade {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: none;
-        }
-      }
+.pane {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem;
+  min-height: 520px;
+  overflow: clip;
+}
+.pane section {
+  display: none;
+  animation: fade 0.25s ease both;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
-      .pane section:target {
-        display: block;
-      }
+.pane section:target {
+  display: block;
+}
 
-      /* Default panel (when no :target in URL) */
-      .pane:has(section:target) #preview-default {
-        display: none;
-      }
-      .pane:not(:has(section:target)) #preview-train {
-        display: block;
-      }
+/* Default panel (when no :target in URL) */
+.pane:has(section:target) #preview-default {
+  display: none;
+}
+.pane:not(:has(section:target)) #preview-train {
+  display: block;
+}
