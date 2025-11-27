@@ -35,7 +35,7 @@ function initializeSwiper() {
     new Swiper(".swiper", {
       loop: true,
       spaceBetween: 20,
-      slidesPerView: 3,
+      slidesPerView: 1,
 
       navigation: {
         nextEl: ".swiper-button-next",

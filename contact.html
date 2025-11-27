@@ -65,7 +65,7 @@
     <!-- ================ contact section start ================= -->
     <section class="contact-section">
       <div class="container">
-        <div class="row d-sm-block mb-5 d-flex justify-content-center ">
+        <div class="row d-sm-block mb-5 d-flex justify-content-center">
           <!--<div
             id="map"
             style="height: 480px; position: relative; overflow: hidden"
@@ -73,15 +73,15 @@
           <div
             id="map"
             style="height: 480px; border-radius: 10px; overflow: hidden"
-            class=" col-10 d-flex justify-content-center"
+            class="col-10 d-flex justify-content-center"
           ></div>
-
-         
         </div>
 
         <div class="row">
           <div class="col-12">
-            <h2 class="contact-title d-flex justify-content-center">Get in Touch</h2>
+            <h2 class="contact-title d-flex justify-content-center">
+              Get in Touch
+            </h2>
           </div>
           <div class="col-lg-8 contact">
             <form
@@ -149,7 +149,7 @@
               <div class="form-group mt-3 d-flex justify-content-center">
                 <button
                   type="submit"
-                  class="button button-contactForm boxed-btn "
+                  class="button button-contactForm boxed-btn"
                 >
                   Envoyer
                 </button>
@@ -158,36 +158,34 @@
           </div>
 
           <div class="col-lg-3 offset-lg-1 contact">
-          <div class="media contact-info">
-            <span class="contact-info__icon"><i class="ti-home"></i></span>
-            <div class="media-body">
-              <h3>Fkih Ben Salah</h3>
-              <p>Quartier El Yasamine Avenue Allal Ben Abdellah N 21</p>
+            <div class="media contact-info">
+              <span class="contact-info__icon"><i class="ti-home"></i></span>
+              <div class="media-body">
+                <h3>Fkih Ben Salah</h3>
+                <p>Quartier El Yasamine Avenue Allal Ben Abdellah N 21</p>
+              </div>
             </div>
-          </div>
-          <div class="media contact-info">
-            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-            <div class="media-body">
-              
-                <span >Nabil </span>
+            <div class="media contact-info">
+              <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+              <div class="media-body">
+                <span>Nabil </span>
                 <h3>+212 651259429</h3>
 
-                <span >Hassan</span>
+                <span>Hassan</span>
                 <h3>+212 663734292</h3>
 
-                <span >Hodir</span>
+                <span>Hodir</span>
                 <h3>+212 662231352</h3>
-              
+              </div>
+            </div>
+            <div class="media contact-info">
+              <span class="contact-info__icon"><i class="ti-email"></i></span>
+              <div class="media-body">
+                <h3>ALRIWAQ@gmail.com</h3>
+                <p>Envoyer ton reclamation ici</p>
+              </div>
             </div>
           </div>
-          <div class="media contact-info">
-            <span class="contact-info__icon"><i class="ti-email"></i></span>
-            <div class="media-body">
-              <h3>ALRIWAQ@gmail.com</h3>
-              <p>Envoyer ton reclamation ici</p>
-            </div>
-          </div>
-         </div>
         </div>
       </div>
     </section>
@@ -258,7 +256,6 @@
           rightIcon: '<span class="fa fa-caret-down"></span>',
         },
       });
-  
 
       document.addEventListener("DOMContentLoaded", function () {
         // إنشاء الخريطة
@@ -278,8 +275,10 @@
           .bindPopup("👋 مرحباً بك في أسفار الرواق!")
           .openPopup();
       });
-    
-      document.getElementById("contactForm").addEventListener("submit", function (e) {
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
           e.preventDefault();
 
           const formData = new FormData(this);
@@ -291,24 +290,23 @@
           console.log("Message:", formData.get("message"));
 
           fetch("contact_process.php", {
-              method: "POST",
-              body: formData
+            method: "POST",
+            body: formData,
           })
-          .then(res => res.text())
-          .then(data => {
+            .then((res) => res.text())
+            .then((data) => {
               console.log("📥 Server response:", data);
 
               if (data.includes("success")) {
-                  alert("✔ Email sent successfully!");
+                alert("✔ Email sent successfully!");
               } else {
-                  alert("❌ Error sending email.");
+                alert("❌ Error sending email.");
               }
-          })
-          .catch(err => {
+            })
+            .catch((err) => {
               console.error("❌ Fetch Error:", err);
-          });
-      });
-
+            });
+        });
     </script>
   </body>
 </html>
